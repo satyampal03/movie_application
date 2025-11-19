@@ -152,7 +152,7 @@ body{
     /* scroll-behavior: hidd; */
 
 
-    display: none;
+    display:none;
 }
 
 .search_user .search::-webkit-scrollbar{
@@ -499,13 +499,13 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: #b8b6b6;
     border-radius: 50%;
     cursor: pointer;
     font-size: 12px;
     transition: 0.3s linear;
     z-index: 9999;
-    /* opacity: 0; */
+    opacity: 0;
 }
 
 .container section  .fa-angle-left:hover, .fa-angle-right:hover{
@@ -531,6 +531,7 @@ body{
 .container section .fa-angle-right{
       left: unset;
       right: 2%;
+      width: 25px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -541,4 +542,15 @@ body{
 }
 .container section:hover .fa-angle-right{
       opacity: 1;
+}
+
+
+/*  new style added */
+.content{
+background-color: rgb(0, 0, 0, 0.3);
+    margin-left: 50px;
+    backdrop-filter: blur(7px);
+    border: none;
+    border-radius: 10px;
+    height: 40%;
 }
