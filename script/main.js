@@ -32,6 +32,11 @@
 // -------------------###START-HERE###----------------------------
 // Elements Selection here
 const cards = document.querySelector('.cards');
+const main_title = document.querySelector('.title');
+const main_description = document.querySelector('.description');
+const movie_title = document.querySelector('.movie_title');
+const released_year = document.querySelector('.released_year');
+const ratings = document.getElementById('rate');
 
 
 
@@ -69,15 +74,10 @@ const getMovie = async () => {
         console.log(data.results[0].vote_average);
         console.log(data.results[0].vote_count);
 
-        const movies = (data.results);
-
-
-        
+        const movies = (data.results);  
         movies.forEach(elem => {
             const card = document.createElement('a');
-            card.classList.add('card');
-
-            
+            card.classList.add('card'); 
             let html =
                      `
                     <img src="https://image.tmdb.org/t/p/original/${elem.backdrop_path}}" class="poster" alt="${title} image not found">
@@ -87,7 +87,7 @@ const getMovie = async () => {
                             <h4>${elem.original_title}</h4>
                             <div class="sub_title">
                             
-                                <p>${elem.original_language} ${elem.release_date}</p>
+                                <p>${elem.original_language} ${elem.release_date.slice(0,4)}</p>
                                 <h3><span>IMDB</span><i class="fa-solid fa-star"></i>${elem.vote_average.toFixed(2)}</h3>
                             </div>
                         </div>
@@ -98,11 +98,16 @@ const getMovie = async () => {
         card.innerHTML = html;
         cards.appendChild(card);
         });
-       
-        document.querySelector('.count');
 
+        main_title.textContent = `${data.results[4].original_title}`;
 
+        main_description.textContent = `${data.results[4].overview}`;
 
+        movie_title.textContent = `${data.results[4].title}`;
+
+        released_year.textContent = `${data.results[4].release_date.slice(0,4)}`;
+
+        ratings.innerHTML =  `<span>IMDB</span><i class="fa-solid fa-star"></i>${data.results[4].vote_average.toFixed(2)}`;
 
     }catch(err){
         console.log(err);
